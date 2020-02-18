@@ -25,7 +25,7 @@ before_script:
 script:
 - python -m unittest discover
 - docker build -t swagger-spring-example:1.0.0 .
-- docker push masterminded/devops:tagname
+- docker push masterminded/devopscloudweek2:tagname
 - docker run --name example_api -d -t -p 127.0.0.1:8080:8080 swagger-spring-example:1.0.0
 - docker ps
 
@@ -38,5 +38,5 @@ script:
 
 after_success:
   - docker login -u $DOCKER_USER -p $DOCKER_PASS
-  - docker tag masterminded/devops:tagname
-  - docker push masterminded/devops:tagname
+  - docker tag masterminded/devopscloudweek2:tagname
+  - docker push masterminded/devopscloudweek2:tagname
